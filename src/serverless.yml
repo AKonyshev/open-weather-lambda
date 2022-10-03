@@ -1,0 +1,30 @@
+service: devs-547-open-weather-api
+
+
+provider:
+  name: aws
+  runtime: dotnet6
+  region: us-east-1
+  memorySize: 256
+  timeout: 30
+  iam:
+    role: arn:aws:iam::055543198868:role/devs-547-lambda-prod-role
+  vpc:
+    securityGroupIds:
+      - sg-0388b80efca77eb0e
+    subnetIds:
+      - subnet-0c56633696e5a3fc1
+
+package:
+  individually: true
+
+functions:
+  getCurrentWeather:
+    handler: OpenWeatherMap::OpenWeatherMap.Handler::GetCurrentWeather
+    package:
+      artifact: bin/release/net6.0/package.zip
+
+    events:
+      - http:
+          path: /v1/getCurrentWeather
+          method: get
