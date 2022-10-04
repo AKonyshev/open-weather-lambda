@@ -73,9 +73,18 @@ namespace OpenWeatherMap
         /// <returns>Response data</returns>
         public async Task<APIGatewayProxyResponse> GetCurrentWeather(APIGatewayProxyRequest request, ILambdaContext context)
         {
+            if (request == null || request.QueryStringParameters == null)
+            {
+                LogMessage(context, "Processing request failed - Please add queryStringParameter 'city' to your request");
+                return new APIGatewayProxyResponse
+                {
+                    StatusCode = (int)HttpStatusCode.BadRequest,
+                    Body = "Bad Request. City required query parameter",
+                };
+            }
+
             var cityParam = request.QueryStringParameters
                     .FirstOrDefault(x => string.Equals(x.Key, "city", StringComparison.InvariantCultureIgnoreCase));
-
             if (cityParam.Equals(default))
             {
                 LogMessage(context, "Processing request failed - Please add queryStringParameter 'city' to your request");

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html dir="ltr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" class="ie ie6 no-js"><![endif]-->
+<!--[if IE 7 ]><html dir="ltr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" class="ie ie7 no-js"><![endif]-->
+<!--[if IE 8 ]><html dir="ltr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" class="ie ie8 no-js"><![endif]-->
+<!--[if IE 9 ]><html dir="ltr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" class="ie ie9 no-js"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html dir="ltr" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><!--<![endif]-->
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+    <title>&#x041D;&#x0430;&#x0447;&#x0430;&#x043B;&#x044C;&#x043D;&#x0430;&#x044F; &#x0441;&#x0442;&#x0440;&#x0430;&#x043D;&#x0438;&#x0446;&#x0430;</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css" media="all" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <div class="weather-content">
+        <div class="weather-toolbar">
+            <input id="inputString" class="weather-input" type="text" placeholder="London"/>
+            <input type="button" class="weather-search" value="Search" onclick="getCurrentWeather()"/>
+         </div>
+         <div class="weather-main">
+            <div class="weather-main-temp"></div>
+            <div class="weather-main-cloud"></div>
+         </div>
+
+         <div class="weather-wind-content">
+            <div class="weather-wind-row">
+                <div class="weather-wind-row-title">Wind</div>
+                <div class="weather-wind-row-value"></div>
+            </div>
+            <div class="weather-wind-rectangle"></div>
+            <div class="weather-wind-row">
+                <div class="weather-wind-row-title">Wind direction</div>
+                <div class="weather-wind-row-value"></div>
+            </div>
+            <div class="weather-wind-rectangle"></div>
+            <div class="weather-wind-row">
+                <div class="weather-wind-row-title">Pressure</div>
+                <div class="weather-wind-row-value"></div>
+            </div>
+            <div class="weather-wind-rectangle"></div>
+            <div class="weather-wind-row">
+                <div class="weather-wind-row-title">Humidity</div>
+                <div class="weather-wind-row-value"></div>
+            </div>
+         </div>
+    </div>
+
+</body>
+<script type="text/javascript" src="js/functions.js" charset="utf-8"></script>
+</html>
