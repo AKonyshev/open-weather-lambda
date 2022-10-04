@@ -1,0 +1,9 @@
+version: "2.4"
+services:
+    nginx:
+      build:
+        context: ./frontend
+        dockerfile: ./Dockerfile
+      image: open-weather-nginx-spnego:1.0.0
+      ports:
+        - "85:80"
