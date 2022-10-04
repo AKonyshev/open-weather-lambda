@@ -11,9 +11,20 @@ provider:
     role: arn:aws:iam::055543198868:role/devs-547-lambda-prod-role
   vpc:
     securityGroupIds:
-      - sg-0388b80efca77eb0e
+ #     - sg-0388b80efca77eb0e
+       - sg-0708fe6bdb3c76a24
+ #      - sg-0e34b99fac6da31d7
     subnetIds:
-      - subnet-0c56633696e5a3fc1
+ #     - subnet-0c56633696e5a3fc1
+       - subnet-05f7c8361995ac60b
+ #      - subnet-0cf69da3a03fc81b0
+ #      - subnet-0bbeecce91a5b2413
+  environment:
+    elasticCacheUrl: public-redis.5vv4vd.ng.0001.use1.cache.amazonaws.com
+    elasticCacheInstance: DEVS-547
+    apiSecretKey: prod/weather/api
+    baseOpenWeatherUrl: http://api.openweathermap.org/
+    openWeatherApiId: 0d1a332b0a179826a3763b51312e9863
 
 package:
   individually: true

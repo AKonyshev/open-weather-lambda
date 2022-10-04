@@ -8,14 +8,15 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Amazon.Lambda.AspNetCoreServer" Version="7.2.0" />
-    <PackageReference Include="Amazon.Lambda.Annotations" Version="0.8.0-preview" />
-    <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="6.0.9" />
+    <PackageReference Include="StackExchange.Redis" Version="2.6.66" />
     <PackageReference Include="AWSSDK.SecretsManager.Caching" Version="1.0.4" />
     <PackageReference Include="Amazon.Lambda.RuntimeSupport" Version="1.8.2" />
+    <PackageReference Include="System.Net.Http" Version="4.3.4" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Amazon.Lambda.Serialization.SystemTextJson" />
     <None Remove="Amazon.Lambda.Annotations" />
     <None Remove="Amazon.Lambda.RuntimeSupport" />
+    <None Remove="System.Net.Http" />
   </ItemGroup>
 </Project>
