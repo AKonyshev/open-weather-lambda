@@ -85,7 +85,7 @@ namespace OpenWeatherMap
 
             var cityParam = request.QueryStringParameters
                     .FirstOrDefault(x => string.Equals(x.Key, "city", StringComparison.InvariantCultureIgnoreCase));
-            if (cityParam.Equals(default))
+            if (cityParam.Equals(default) || string.IsNullOrEmpty(cityParam.Value))
             {
                 LogMessage(context, "Processing request failed - Please add queryStringParameter 'city' to your request");
                 return new APIGatewayProxyResponse
