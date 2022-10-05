@@ -75,24 +75,15 @@ namespace OpenWeatherMap
         {
             if (request == null || request.QueryStringParameters == null)
             {
-                LogMessage(context, "Processing request failed - Please add queryStringParameter 'city' to your request");
-                return new APIGatewayProxyResponse
-                {
-                    StatusCode = (int)HttpStatusCode.BadRequest,
-                    Body = "Bad Request. City required query parameter",
-                };
+                return CreateBadRequest(context);
+
             }
 
             var cityParam = request.QueryStringParameters
                     .FirstOrDefault(x => string.Equals(x.Key, "city", StringComparison.InvariantCultureIgnoreCase));
             if (cityParam.Equals(default) || string.IsNullOrEmpty(cityParam.Value))
             {
-                LogMessage(context, "Processing request failed - Please add queryStringParameter 'city' to your request");
-                return new APIGatewayProxyResponse
-                {
-                    StatusCode = (int)HttpStatusCode.BadRequest,
-                    Body = "Bad Request. City required query parameter",
-                };
+                return CreateBadRequest(context);
             }
 
             var cityName = cityParam.Value;
@@ -290,6 +281,16 @@ namespace OpenWeatherMap
         private void LogMessage(ILambdaContext ctx, string msg)
         {
             ctx.Logger.LogLine($"{ctx.AwsRequestId}:{ctx.FunctionName} - {msg}");
+        }
+
+        private APIGatewayProxyResponse CreateBadRequest(ILambdaContext ctx)
+        {
+            LogMessage(ctx, "Processing request failed - Please add queryStringParameter 'city' to your request");
+            return new APIGatewayProxyResponse
+            {
+                StatusCode = (int) HttpStatusCode.BadRequest,
+                Body = "Bad Request. City required query parameter",
+            };
         }
     }
 }
